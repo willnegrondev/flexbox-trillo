@@ -198,31 +198,68 @@
     }
 }
 
-.heading-secondary {
-    font-size: 2.5rem;
-    font-weight: 100;
-    color: currentColor;
-    text-transform: uppercase;
+.btn-inline {
+    color: var(--color-primary);
+    border: none;
+    background-color:transparent;
+    border-bottom: 1px solid currentColor;
+    font-size: inherit;
+    padding-bottom: 2px;
+    display: inline-block;
+    cursor: pointer;
+    transition: all .2s;
+
+    &:hover {
+        color: var(--color-grey-dark-1);
+    }
+
+    &:focus {
+        outline: none;
+        animation: pulsate 1s infinite;
+    }
 }
 
-.hotel-header {
+@keyframes pulsate {
+    0% {
+        transform: scale(1);
+        box-shadow: none;
+    }
+
+    50% {
+        transform: scale(1.1);
+        box-shadow: 0 1rem 4rem rgba(0, 0, 0, .25);
+    }
+
+    100% {
+        transform: scale(1);
+        box-shadow: none;
+    }
+}
+
+.overview {
     display: flex;
     align-content: center;
     border-bottom: 1px solid var(--color-grey-light-4);
     color: var(--color-grey-dark-2);
 
     &__heading {
-        padding: 1rem 3rem;
+        font-size: 2.25rem;
+        font-weight: 300;
+        color: currentColor;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        padding: 1.5rem 3rem;
     }
 
     &__stars {
-        flex: 4 0 20rem;
+        margin-right: auto;
         height: auto;
         display: flex;
         align-items: center;
     }
 
-    &__star {
+    &__star,
+    &__location-pin {
         width: 2rem;
         height: 2rem;
         fill: var(--color-primary);
@@ -230,25 +267,17 @@
 
     &__location {
         color: var(--color-primary);
-        font-size: 1.0rem;
+        font-size: 1.2rem;
         font-weight: 600;
-        justify-self: flex-end;
         display: flex;
         align-items: center;
         padding: 0 2rem;
-        span {
-            border-bottom: 1px solid currentColor;
-        }
     }
 
     &__location-pin {
-        fill: currentColor;
-        width: 2rem;
-        height: 2rem;
     }
 
     &__rating {
-        justify-self: flex-end;
         flex: 0 0 10rem;
         text-transform: uppercase;
         display: flex;
@@ -256,5 +285,12 @@
         align-items: center;
         background-color: var(--color-primary);
         color: var(--color-grey-light-1);
+    }
+
+    &__rating-average {
+        font-size: 2.25rem;
+        font-weight: 300;
+        color: currentColor;
+        text-transform: uppercase;
     }
 }
